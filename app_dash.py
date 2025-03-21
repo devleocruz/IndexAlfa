@@ -2,6 +2,7 @@ import pickle
 import dash
 from dash import dcc, html, Input, Output
 import plotly.graph_objects as go
+import os
 
 # Carrega pickle já com cores corretas
 with open("grafo_cache.pkl", "rb") as f:
@@ -91,5 +92,8 @@ def update_graph(dimensao):
             trace.marker.size = min(15, trace.marker.size or 10) if dimensao == "qtd" else min(25, (trace.marker.size or 10) * 1.5)
     return fig
 
+import os
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 8050))
+    app.run(host="0.0.0.0", port=port, debug=True)
