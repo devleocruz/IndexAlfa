@@ -12,7 +12,7 @@ if not root_dir:
     exit()
 
 root_dir = root_dir.replace("\\", "/")
-nome_dir = os.path.basename(root_dir.rstrip("/\\")).replace("-", " ").title()
+nome_dir = os.path.basename(root_dir.rstrip("/\\")).replace("-", " ")
 
 G = nx.Graph()
 node_info = {}
@@ -32,7 +32,7 @@ def get_size_kb(path):
 for folder, subfolders, files in os.walk(root_dir):
     rel_path = os.path.relpath(folder, root_dir).replace("\\", "/").lower()
     folder_name = os.path.basename(folder) or folder
-    level = rel_path.count('/')  # <-- fix aplicado
+    level = rel_path.count('/')
     max_level = max(max_level, level)
     folder_size = get_size_kb(folder)
     qtd_itens = len(subfolders) + len(files)
@@ -114,6 +114,6 @@ for edge in G.edges:
         ))
 
 with open("grafo_cache.pkl", "wb") as f:
-    pickle.dump({"fig": fig, "max_level": max_level}, f)
+    pickle.dump({"fig": fig, "max_level": max_level, "root_name": nome_dir}, f)
 
 print("Gráfico salvo como grafo_cache.pkl")

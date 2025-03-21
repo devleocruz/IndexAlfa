@@ -4,11 +4,12 @@ from dash import dcc, html, Input, Output
 import plotly.graph_objects as go
 import os
 
-# Carrega pickle já com cores corretas
+# Carrega pickle já com o root_name
 with open("grafo_cache.pkl", "rb") as f:
     data = pickle.load(f)
     fig_base = data["fig"]
     max_level = data["max_level"]
+    root_name = data.get("root_name", "Diretórios")
 
 app = dash.Dash(__name__)
 
@@ -23,15 +24,6 @@ fig_base.update_layout(
     plot_bgcolor='rgba(0,0,0,0)',
 )
 
-def gradiente_rgb(level, max_level=20):
-    pct = level / max(max_level, 1)
-    if pct < 0.2: return '#1E90FF'
-    elif pct < 0.4: return '#6A5ACD'
-    elif pct < 0.55: return '#8A2BE2'
-    elif pct < 0.7: return '#32CD32'
-    elif pct < 0.85: return '#FF7F7F'
-    else: return '#FF0000'
-
 def gerar_legenda(max_level):
     cores = ['#1E90FF', '#6A5ACD', '#8A2BE2', '#32CD32', '#FF7F7F', '#FF0000']
     return [
@@ -44,20 +36,8 @@ def gerar_legenda(max_level):
         for lvl in range(max_level + 1)
     ]
 
-# No layout:
-dcc.Dropdown(
-    id="dimensao",
-    options=[
-        {"label": "Qtd de Itens", "value": "qtd"},
-        {"label": "Tamanho em KB", "value": "kb"}
-    ],
-    value="qtd",
-    clearable=False,
-    style={"width": "90%", "fontSize": "14px", "marginBottom": "15px"}
-),
-
 app.layout = html.Div([
-    html.H3("Mapa 3D da Estrutura de Diretórios", style={"margin": "2px 0", "textAlign": "center", "fontSize": "18px"}),
+    html.H3(f"Representação Tridimensional - {root_name}", style={"margin": "2px 0", "textAlign": "center", "fontSize": "18px"}),
 
     html.Div([
         html.Div([
@@ -78,7 +58,7 @@ app.layout = html.Div([
                 ],
                 value="qtd",
                 clearable=False,
-                style={"width": "90%", "fontSize": "12px", "marginBottom": "10px"}
+                style={"width": "90%", "fontSize": "14px", "marginBottom": "15px"}
             ),
             html.Div(
                 gerar_legenda(max_level),
@@ -104,6 +84,9 @@ def update_graph(dimensao):
         if trace.mode == "markers":
             trace.marker.size = min(15, trace.marker.size or 10) if dimensao == "qtd" else min(25, (trace.marker.size or 10) * 1.5)
     return fig
+
+# if __name__ == "__main__":
+#     app.run(debug=True)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8050))
