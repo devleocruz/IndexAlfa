@@ -33,15 +33,28 @@ def gradiente_rgb(level, max_level=20):
     else: return '#FF0000'
 
 def gerar_legenda(max_level):
+    cores = ['#1E90FF', '#6A5ACD', '#8A2BE2', '#32CD32', '#FF7F7F', '#FF0000']
     return [
         html.Div([
-            html.Span(style={'display': 'inline-block', 'width': '10px', 'height': '10px',
-                             'backgroundColor': gradiente_rgb(lvl, max_level),
-                             'borderRadius': '50%', 'marginRight': '5px'}),
-            html.Span(f'Nível {lvl}')
-        ], style={"fontSize": "10px", "marginBottom": "4px"})
+            html.Span(style={'display': 'inline-block', 'width': '15px', 'height': '15px',
+                             'backgroundColor': cores[min(int(lvl * len(cores) / max(max_level, 1)), len(cores)-1)],
+                             'borderRadius': '50%', 'marginRight': '8px'}),
+            html.Span(f'Nível {lvl}', style={"fontSize": "12px"})
+        ], style={"marginBottom": "6px"})
         for lvl in range(max_level + 1)
     ]
+
+# No layout:
+dcc.Dropdown(
+    id="dimensao",
+    options=[
+        {"label": "Qtd de Itens", "value": "qtd"},
+        {"label": "Tamanho em KB", "value": "kb"}
+    ],
+    value="qtd",
+    clearable=False,
+    style={"width": "90%", "fontSize": "14px", "marginBottom": "15px"}
+),
 
 app.layout = html.Div([
     html.H3("Mapa 3D da Estrutura de Diretórios", style={"margin": "2px 0", "textAlign": "center", "fontSize": "18px"}),
@@ -91,8 +104,6 @@ def update_graph(dimensao):
         if trace.mode == "markers":
             trace.marker.size = min(15, trace.marker.size or 10) if dimensao == "qtd" else min(25, (trace.marker.size or 10) * 1.5)
     return fig
-
-import os
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8050))

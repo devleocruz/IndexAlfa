@@ -32,7 +32,7 @@ def get_size_kb(path):
 for folder, subfolders, files in os.walk(root_dir):
     rel_path = os.path.relpath(folder, root_dir).replace("\\", "/").lower()
     folder_name = os.path.basename(folder) or folder
-    level = rel_path.count(os.sep)
+    level = rel_path.count('/')  # <-- fix aplicado
     max_level = max(max_level, level)
     folder_size = get_size_kb(folder)
     qtd_itens = len(subfolders) + len(files)
@@ -72,19 +72,6 @@ for folder, subfolders, files in os.walk(root_dir):
                 "qtd_itens": 0
             }
 
-# Garante que todos os nós do G estejam no node_info e pos_3d
-for node in G.nodes:
-    if node not in node_info:
-        node_info[node] = {
-            "name": os.path.basename(node),
-            "weight": 1,
-            "level": 0,
-            "path": node,
-            "tipo": "Desconhecido",
-            "size_kb": 0,
-            "qtd_itens": 0
-        }
-
 np.random.seed(42)
 pos_3d = {node: np.array([
     np.random.uniform(-10, 10),
@@ -116,14 +103,15 @@ for node, coord in pos_3d.items():
     ))
 
 for edge in G.edges:
-    x_vals = [pos_3d[edge[0]][0], pos_3d[edge[1]][0]]
-    y_vals = [pos_3d[edge[0]][1], pos_3d[edge[1]][1]]
-    z_vals = [pos_3d[edge[0]][2], pos_3d[edge[1]][2]]
-    fig.add_trace(go.Scatter3d(
-        x=x_vals, y=y_vals, z=z_vals, mode="lines",
-        line=dict(color="gray", width=1),
-        showlegend=False
-    ))
+    if edge[0] in pos_3d and edge[1] in pos_3d:
+        x_vals = [pos_3d[edge[0]][0], pos_3d[edge[1]][0]]
+        y_vals = [pos_3d[edge[0]][1], pos_3d[edge[1]][1]]
+        z_vals = [pos_3d[edge[0]][2], pos_3d[edge[1]][2]]
+        fig.add_trace(go.Scatter3d(
+            x=x_vals, y=y_vals, z=z_vals, mode="lines",
+            line=dict(color="gray", width=1),
+            showlegend=False
+        ))
 
 with open("grafo_cache.pkl", "wb") as f:
     pickle.dump({"fig": fig, "max_level": max_level}, f)
