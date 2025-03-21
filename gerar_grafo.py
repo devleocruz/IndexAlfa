@@ -96,7 +96,7 @@ for node, coord in pos_3d.items():
     fig.add_trace(go.Scatter3d(
         x=[coord[0]], y=[coord[1]], z=[coord[2]],
         mode="markers",
-        marker=dict(size=np.clip(info["weight"] * 2, 5, 30), color=cor),
+        marker=dict(size=np.clip(info["weight"] * 1.5, 4, 15), color=cor),
         hovertext=f"Nome: {info['name']}<br>Tipo: {info['tipo']}<br>Nível: {info['level']}<br>Tamanho: {info['size_kb']:.2f} KB<br>Qtd Itens: {info['qtd_itens']}",
         hoverinfo="text",
         showlegend=False

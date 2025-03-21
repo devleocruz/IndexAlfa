@@ -85,9 +85,9 @@ def update_graph(dimensao):
             trace.marker.size = min(15, trace.marker.size or 10) if dimensao == "qtd" else min(25, (trace.marker.size or 10) * 1.5)
     return fig
 
-# if __name__ == "__main__":
-#     app.run(debug=True)
-
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8050))
-    app.run(host="0.0.0.0", port=port, debug=True)
+    app.run(debug=True)
+
+# if __name__ == "__main__":
+#     port = int(os.environ.get("PORT", 8050))
+#     app.run(host="0.0.0.0", port=port, debug=True)
