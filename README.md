@@ -37,8 +37,7 @@ Desenvolver um sistema de visualização interativa 3D que mapeia a estrutura de
 - O projeto foi projetado para **rodar localmente** via Python e Dash.
 
 ## Público
-Desenvolvido para a **Alfa Contabilidade** por Leonardo Cruz e Gabriel Inácio, no contexto do **Projeto Indexalfa 2025**.  
-🔗 [Acesse o site aqui](https://web-production-9460f.up.railway.app/)
+Desenvolvido para a **Alfa Contabilidade** por Leonardo Cruz e Gabriel Inácio, no contexto do **Projeto Indexalfa 2025**.
 ---
 
 ## Tecnologias
