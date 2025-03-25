@@ -125,7 +125,7 @@ def atualizar_grafo(modo, dimensao):
     for node, info in node_info.items():
         cor = gradiente_rgb(info["level"])
         size = info["qtd_itens"] if dimensao == "qtd" else info["size_kb"]
-        size = np.clip(size * 1.5, 5, 30)
+        size = np.clip(size * 1.5, 5, 25)
 
         texto = f"Nome: {info['name']}<br>Tipo: {info['tipo']}<br>Nível: {info['level']}<br>Tamanho: {info['size_kb']:.2f} KB<br>Qtd Itens: {info['qtd_itens']}"
 
@@ -164,3 +164,4 @@ app.layout = gerar_layout()
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8050))
     app.run(host="0.0.0.0", port=port, debug=True)
+#     app.run(debug=True)
