@@ -121,7 +121,7 @@ zipp==3.21.0
 ```
 
 2. `gerar_grafo.py`
-```bash
+```python
 import os
 import pickle
 import networkx as nx
@@ -354,7 +354,7 @@ if __name__ == "__main__":
 ```
 
 3. `app_dash.py`
-```bash
+```python
 import pickle
 import dash
 from dash import dcc, html, Input, Output
