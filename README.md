@@ -173,7 +173,8 @@ class FiltroApp:
         self.botao_ok.pack(side="right", padx=20)
 
         self.pasta_var = ""
-
+```
+```python
     def selecionar_pasta(self):
         pasta = filedialog.askdirectory(title="Selecione a pasta raiz")
         if pasta:
