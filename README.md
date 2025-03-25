@@ -75,6 +75,24 @@ Desenvolver um sistema de visualização interativa (2D e 3D) para mapear estrut
 
 ## Execução
 
+Quando você precisar em outro projeto, ou em outra máquina, ou depois de clonar o projeto, é só:
+
+1. Criar um novo ambiente virtual:
+```bash
+python -m venv venv
+.env\Scripts\Activate
+```
+
+2. Instalar as dependências:
+```bash
+pip install -r requirements.txt
+```
+
+O pip vai instalar exatamente as mesmas versões das bibliotecas usadas no projeto.
+
+---
+
+
 1. Execute o gerador:
 ```bash
 python gerar_grafo.py
