@@ -121,6 +121,7 @@ zipp==3.21.0
 ```
 
 2. `gerar_grafo.py`
+   
 ```python
 import os
 import pickle
@@ -354,6 +355,7 @@ if __name__ == "__main__":
 ```
 
 3. `app_dash.py`
+
 ```python
 import pickle
 import dash
