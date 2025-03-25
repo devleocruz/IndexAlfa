@@ -3,6 +3,7 @@ import dash
 from dash import dcc, html, Input, Output
 import plotly.graph_objects as go
 import numpy as np
+import os
 
 # Carrega o grafo
 with open("grafo_cache.pkl", "rb") as f:
@@ -160,5 +161,9 @@ def atualizar_grafo(modo, dimensao):
 
 app.layout = gerar_layout()
 
+# if __name__ == "__main__":
+#     app.run(debug=True)
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 8050))
+    app.run(host="0.0.0.0", port=port, debug=True)
