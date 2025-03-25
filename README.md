@@ -38,7 +38,7 @@ Desenvolver um sistema de visualização interativa 3D que mapeia a estrutura de
 
 ## Público
 Desenvolvido para a **Alfa Contabilidade** por Leonardo Cruz e Gabriel Inácio, no contexto do **Projeto Indexalfa 2025**.
-
+Site: https://web-production-9460f.up.railway.app/
 ---
 
 ## Tecnologias
