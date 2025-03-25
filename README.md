@@ -122,6 +122,7 @@ zipp==3.21.0
 
 2. `gerar_grafo.py`
 ```python
+
 import os
 import pickle
 import networkx as nx
