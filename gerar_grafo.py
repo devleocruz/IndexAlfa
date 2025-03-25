@@ -14,8 +14,6 @@ class FiltroApp:
         self.root.title("Filtros de Mapeamento")
         self.root.geometry("400x300")
         self.root.resizable(False, False)
-        self.root.iconbitmap("icone.ico")
-
 
         # Tipo de conteúdo
         ttk.Label(root, text="Conteúdo a mapear:").pack(pady=5)
