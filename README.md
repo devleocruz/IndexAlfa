@@ -76,7 +76,7 @@ Desenvolver um sistema de visualização interativa (2D e 3D) para mapear estrut
 ## Execução
 
 #### 1) Para exeutar você precisa de três aquivos:
-1. `requirements.txt`
+**1. `requirements.txt`**
 ```bash
 altgraph==0.17.4
 blinker==1.9.0
@@ -120,7 +120,7 @@ Werkzeug==3.0.6
 zipp==3.21.0
 ```
 
-2. `gerar_grafo.py`
+**2. `gerar_grafo.py`**
    
 ```python
 import os
