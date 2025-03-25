@@ -75,7 +75,7 @@ Desenvolver um sistema de visualização interativa (2D e 3D) para mapear estrut
 
 ## Execução
 
-Para exeutar você precisa de três aquivos:
+#### 1) Para exeutar você precisa de três aquivos:
 1. `requirements.txt`
 ```bash
 altgraph==0.17.4
@@ -131,7 +131,7 @@ import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
 import threading
 
-# ---------------- INTERFACE ------------------
+"""---------------- INTERFACE ------------------"""
 class FiltroApp:
     def __init__(self, root):
         self.root = root
@@ -211,7 +211,7 @@ class FiltroApp:
         self.status_label.config(text="Mapeamento finalizado! (grafo_cache.pkl)")
         self.botao_ok.config(state="normal")
 
-# -------------- FUNÇÃO DE GERAÇÃO DO GRAFO -------------------
+"""-------------- FUNÇÃO DE GERAÇÃO DO GRAFO -------------------"""
 def gerar_grafo(root_dir, tipo_conteudo, nivel_max_user):
     root_dir = root_dir.replace("\\", "/")
     nome_dir = os.path.basename(root_dir.rstrip("/\\")).replace("-", " ")
@@ -346,7 +346,7 @@ def gerar_grafo(root_dir, tipo_conteudo, nivel_max_user):
 
     print("Gráfico salvo como grafo_cache.pkl")
 
-# ----------------- EXECUÇÃO --------------------
+"""----------------- EXECUÇÃO --------------------"""
 if __name__ == "__main__":
     root = tk.Tk()
     app = FiltroApp(root)
@@ -522,7 +522,8 @@ if __name__ == "__main__":
     app.run(debug=True) # Para executar localmente
 ```
 
-1. Criar um novo ambiente virtual:
+#### 2) Configurando o ambiente virtual:
+1. Criar um novo ambiente virtual
 ```bash
 python -m venv venv
 .env\Scripts\Activate
@@ -538,7 +539,8 @@ O pip vai instalar exatamente as mesmas versões das bibliotecas usadas no proje
 ---
 
 
-1. Execute o gerador:
+#### 3) Executando:
+1. Execute o gerador
 ```bash
 python gerar_grafo.py
 ```
