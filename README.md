@@ -211,7 +211,6 @@ class FiltroApp:
         self.status_label.config(text="Mapeamento finalizado! (grafo_cache.pkl)")
         self.botao_ok.config(state="normal")
 
-# -------------- FUNÇÃO DE GERAÇÃO DO GRAFO -------------------
 def gerar_grafo(root_dir, tipo_conteudo, nivel_max_user):
     root_dir = root_dir.replace("\\", "/")
     nome_dir = os.path.basename(root_dir.rstrip("/\\")).replace("-", " ")
@@ -346,7 +345,6 @@ def gerar_grafo(root_dir, tipo_conteudo, nivel_max_user):
 
     print("Gráfico salvo como grafo_cache.pkl")
 
-# ----------------- EXECUÇÃO --------------------
 if __name__ == "__main__":
     root = tk.Tk()
     app = FiltroApp(root)
