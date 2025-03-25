@@ -78,3 +78,19 @@ Desenvolver um sistema de visualização interativa (2D e 3D) para mapear estrut
 1. Execute o gerador:
 ```bash
 python gerar_grafo.py
+```
+
+2. Após gerar o `grafo_cache.pkl`, inicie a visualização:
+```bash
+python app_dash.py
+```
+
+A aplicação será iniciada localmente no endereço: [http://localhost:8050](http://localhost:8050)
+
+---
+
+## Autores
+Desenvolvido por **Leonardo Cruz** e **Gabriel Inácio**  
+**Projeto Indexalfa 2025** | Alfa Contabilidade
+
+---
