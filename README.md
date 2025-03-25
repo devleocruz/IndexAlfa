@@ -122,7 +122,6 @@ zipp==3.21.0
 
 2. `gerar_grafo.py`
 ```python
-
 import os
 import pickle
 import networkx as nx
@@ -132,6 +131,7 @@ import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
 import threading
 
+# ---------------- INTERFACE ------------------
 class FiltroApp:
     def __init__(self, root):
         self.root = root
@@ -173,8 +173,7 @@ class FiltroApp:
         self.botao_ok.pack(side="right", padx=20)
 
         self.pasta_var = ""
-```
-```python
+
     def selecionar_pasta(self):
         pasta = filedialog.askdirectory(title="Selecione a pasta raiz")
         if pasta:
@@ -212,6 +211,7 @@ class FiltroApp:
         self.status_label.config(text="Mapeamento finalizado! (grafo_cache.pkl)")
         self.botao_ok.config(state="normal")
 
+# -------------- FUNÇÃO DE GERAÇÃO DO GRAFO -------------------
 def gerar_grafo(root_dir, tipo_conteudo, nivel_max_user):
     root_dir = root_dir.replace("\\", "/")
     nome_dir = os.path.basename(root_dir.rstrip("/\\")).replace("-", " ")
@@ -346,6 +346,7 @@ def gerar_grafo(root_dir, tipo_conteudo, nivel_max_user):
 
     print("Gráfico salvo como grafo_cache.pkl")
 
+# ----------------- EXECUÇÃO --------------------
 if __name__ == "__main__":
     root = tk.Tk()
     app = FiltroApp(root)
@@ -525,7 +526,7 @@ if __name__ == "__main__":
 1. Criar um novo ambiente virtual
 ```bash
 python -m venv venv
-.env\Scripts\Activate
+.venv\Scripts\Activate
 ```
 
 2. Instalar as dependências:
