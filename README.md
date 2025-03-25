@@ -131,7 +131,7 @@ import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
 import threading
 
-"""---------------- INTERFACE ------------------"""
+# ---------------- INTERFACE ------------------
 class FiltroApp:
     def __init__(self, root):
         self.root = root
@@ -211,7 +211,7 @@ class FiltroApp:
         self.status_label.config(text="Mapeamento finalizado! (grafo_cache.pkl)")
         self.botao_ok.config(state="normal")
 
-"""-------------- FUNÇÃO DE GERAÇÃO DO GRAFO -------------------"""
+# -------------- FUNÇÃO DE GERAÇÃO DO GRAFO -------------------
 def gerar_grafo(root_dir, tipo_conteudo, nivel_max_user):
     root_dir = root_dir.replace("\\", "/")
     nome_dir = os.path.basename(root_dir.rstrip("/\\")).replace("-", " ")
@@ -346,7 +346,7 @@ def gerar_grafo(root_dir, tipo_conteudo, nivel_max_user):
 
     print("Gráfico salvo como grafo_cache.pkl")
 
-"""----------------- EXECUÇÃO --------------------"""
+# ----------------- EXECUÇÃO --------------------
 if __name__ == "__main__":
     root = tk.Tk()
     app = FiltroApp(root)
