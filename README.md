@@ -354,7 +354,7 @@ if __name__ == "__main__":
     root.mainloop()
 ```
 
-**3. `app_dash.py`
+**3. `app_dash.py`**
 
 ```python
 import pickle
