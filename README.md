@@ -73,6 +73,10 @@ Desenvolver um sistema de visualização interativa (2D e 3D) para mapear estrut
 
 ---
 
+## Observações Importantes
+
+Para diretórios muito grandes ou em computadores com baixo poder de processamento gráfico, recomenda-se fortemente utilizar filtros (por exemplo, limitar o nível máximo de profundidade ou excluir arquivos pequenos/irrelevantes) para otimizar o desempenho da visualização e evitar sobrecarga computacional.
+
 ## Execução
 
 #### 1) Para exeutar você precisa de três aquivos:
