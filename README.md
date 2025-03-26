@@ -79,7 +79,7 @@ Para diretórios muito grandes ou em computadores com baixo poder de processamen
 
 ## Execução
 
-#### 1) Para exeutar você precisa de três aquivos:
+#### 1) Para executar é necessário três arquivos:
 **1. `requirements.txt`**
 ```bash
 altgraph==0.17.4
